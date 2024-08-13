@@ -1,0 +1,72 @@
+
+========================================================================
+                          Complexity Analysis
+========================================================================
+
+NOTE:
+- Your time complexities should be in big-O notation.
+- For operations that involve only one set, your time complexities should
+  be in terms of n, where n is the number of elements in the set.
+- For operations that involve two sets, your time complexities should be in
+  terms of n and m, where n and m are the number of elements in each of the
+  sets respectively.
+
+--------
+TreeKthSmallest
+--------
+
+Worst case complexity: O(log n + k)
+
+Explanation: 
+The worst case occurs when the kth smallest node is the right-most node of the right tree, such that k=n. The tree's balance ensures that the height of the tree is log in n, and as we search, we divide the search space in half each time, resulting in a search time proportional to the tree's height, which is O(log n). To locate the kth node, we employ an inorder traversal method that requires O(1) time per node and O(k) time for k nodes. However, when k equals n, the time complexity is O(log n + n), which simplifies to O(log n).
+
+
+---------------
+TreeKthLargest
+---------------
+
+Worst case complexity: O(log n + k)
+
+Explanation: 
+The worst case occurs where n is the total number of nodes in the tree and k is the kth largest element being searched for.
+The function recursively searches the right subtree until it finds the largest element, which takes O(log n) time in a balanced binary search tree. Once the largest element is found, the function increments a count variable for each node it visits while searching for the kth largest element. 
+In the worst-case scenario, the kth largest element is located in the left subtree of the largest element, and the function must traverse the entire left subtree, which takes O(k) time. Therefore, the time complexity of the traverseLargest function is O(log n + k), since the search for the largest element takes O(log n) time and the search for the kth largest element takes O(k) time.
+
+-------------
+TreeLCA
+-------------
+
+Worst case complexity: O(log n)
+
+Explanation:
+The worst-case scenario for finding the LCA of two nodes in a balanced binary search tree occurs when the nodes are at the maximum distance from the root, located at opposite ends of the tree. In this case, the LCA is the root of the tree. Because the tree is balanced, the maximum number of comparisons needed to find the LCA is proportional to the height of the tree, which is logarithmic to the number of nodes (log n). Therefore, the worst-case time complexity for finding the LCA in a balanced BST is O(log n).
+
+-------------
+TreeFloor
+-------------
+
+Worst case complexity: O(log n)
+
+Explanation: 
+If the target value is either the smallest or largest value in the tree, the worst-case scenario for searching the value occurs. In this situation, we have to traverse the entire height of the tree, which results in a time complexity of O(log n).
+
+-------------
+TreeCeiling
+-------------
+
+Worst case complexity: O(log n)
+
+Explanation: 
+If the target value is either the smallest or largest value in the tree, the worst-case scenario for searching the value occurs. In this situation, we have to traverse the entire height of the tree, which results in a time complexity of O(log n).
+
+
+-------------
+TreeSearchBetween
+-------------
+
+Worst case complexity: O(log n + m)
+
+Explanation: 
+The worst-case scenario for a search operation occurs when all keys in a tree fall within the specified range, which means m equals n. Adding m values to the list takes O(m) time, and the search operation's time complexity is proportional to the height of the tree, which is O(log n). Therefore, the overall worst-case time complexity would be O(log n + m).
+
+
